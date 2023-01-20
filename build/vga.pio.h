@@ -15,6 +15,8 @@
 #define vga_wrap_target 2
 #define vga_wrap 11
 
+#define vga_offset_entry_point 2u
+
 static const uint16_t vga_program_instructions[] = {
     0xf001, //  0: set    pins, 1         side 1     
     0x7060, //  1: out    null, 32        side 1     

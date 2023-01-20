@@ -28,9 +28,9 @@ CMakeFiles/vga_interface.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_floa
  c:\vsarm\armcc\112202~1.02\arm-none-eabi\include\stdint.h \
  c:\vsarm\armcc\112202~1.02\arm-none-eabi\include\sys\_intsup.h \
  c:\vsarm\armcc\112202~1.02\arm-none-eabi\include\sys\_stdint.h \
- C:\VSARM\projects\vga\build\generated\pico_base/pico/version.h \
+ C:\VSARM\projects\pico-vga\build\generated\pico_base/pico/version.h \
  C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include/pico/config.h \
- C:\VSARM\projects\vga\build\generated\pico_base/pico/config_autogen.h \
+ C:\VSARM\projects\pico-vga\build\generated\pico_base/pico/config_autogen.h \
  C:/VSARM/sdk/pico/pico-sdk/src/boards/include/boards/pico.h \
  C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_platform\include/pico/platform.h \

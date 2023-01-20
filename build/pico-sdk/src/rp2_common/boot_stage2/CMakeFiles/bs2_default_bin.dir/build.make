@@ -52,10 +52,10 @@ RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\VSARM\projects\vga
+CMAKE_SOURCE_DIR = C:\VSARM\projects\pico-vga
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\VSARM\projects\vga\build
+CMAKE_BINARY_DIR = C:\VSARM\projects\pico-vga\build
 
 # Utility rule file for bs2_default_bin.
 
@@ -68,8 +68,8 @@ include pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/progr
 pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin: pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin
 
 pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin: pico-sdk/src/rp2_common/boot_stage2/bs2_default.elf
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=C:\VSARM\projects\vga\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating bs2_default.bin"
-	cd /d C:\VSARM\projects\vga\build\pico-sdk\src\rp2_common\boot_stage2 && "C:\VSARM\armcc\11.2 2022.02\bin\arm-none-eabi-objcopy.exe" -Obinary C:/VSARM/projects/vga/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.elf C:/VSARM/projects/vga/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=C:\VSARM\projects\pico-vga\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating bs2_default.bin"
+	cd /d C:\VSARM\projects\pico-vga\build\pico-sdk\src\rp2_common\boot_stage2 && "C:\VSARM\armcc\11.2 2022.02\bin\arm-none-eabi-objcopy.exe" -Obinary C:/VSARM/projects/pico-vga/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.elf C:/VSARM/projects/pico-vga/build/pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin
 
 bs2_default_bin: pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin
 bs2_default_bin: pico-sdk/src/rp2_common/boot_stage2/bs2_default.bin
@@ -81,10 +81,10 @@ pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/build: bs2_de
 .PHONY : pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/build
 
 pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/clean:
-	cd /d C:\VSARM\projects\vga\build\pico-sdk\src\rp2_common\boot_stage2 && $(CMAKE_COMMAND) -P CMakeFiles\bs2_default_bin.dir\cmake_clean.cmake
+	cd /d C:\VSARM\projects\pico-vga\build\pico-sdk\src\rp2_common\boot_stage2 && $(CMAKE_COMMAND) -P CMakeFiles\bs2_default_bin.dir\cmake_clean.cmake
 .PHONY : pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/clean
 
 pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\VSARM\projects\vga C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\boot_stage2 C:\VSARM\projects\vga\build C:\VSARM\projects\vga\build\pico-sdk\src\rp2_common\boot_stage2 C:\VSARM\projects\vga\build\pico-sdk\src\rp2_common\boot_stage2\CMakeFiles\bs2_default_bin.dir\DependInfo.cmake --color=$(COLOR)
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\VSARM\projects\pico-vga C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\boot_stage2 C:\VSARM\projects\pico-vga\build C:\VSARM\projects\pico-vga\build\pico-sdk\src\rp2_common\boot_stage2 C:\VSARM\projects\pico-vga\build\pico-sdk\src\rp2_common\boot_stage2\CMakeFiles\bs2_default_bin.dir\DependInfo.cmake --color=$(COLOR)
 .PHONY : pico-sdk/src/rp2_common/boot_stage2/CMakeFiles/bs2_default_bin.dir/depend
 

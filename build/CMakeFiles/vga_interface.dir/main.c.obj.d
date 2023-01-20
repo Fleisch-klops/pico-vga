@@ -1,4 +1,5 @@
-CMakeFiles/vga_interface.dir/main.c.obj: C:\VSARM\projects\vga\main.c \
+CMakeFiles/vga_interface.dir/main.c.obj: \
+ C:\VSARM\projects\pico-vga\main.c \
  c:\vsarm\armcc\112202~1.02\arm-none-eabi\include\stdio.h \
  c:\vsarm\armcc\112202~1.02\arm-none-eabi\include\_ansi.h \
  c:\vsarm\armcc\112202~1.02\arm-none-eabi\include\newlib.h \
@@ -40,9 +41,9 @@ CMakeFiles/vga_interface.dir/main.c.obj: C:\VSARM\projects\vga\main.c \
  C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include/pico/assert.h \
  c:\vsarm\armcc\112202~1.02\lib\gcc\arm-none-eabi\11.2.1\include\stdbool.h \
  c:\vsarm\armcc\112202~1.02\arm-none-eabi\include\assert.h \
- C:\VSARM\projects\vga\build\generated\pico_base/pico/version.h \
+ C:\VSARM\projects\pico-vga\build\generated\pico_base/pico/version.h \
  C:\VSARM\sdk\pico\pico-sdk\src\common\pico_base\include/pico/config.h \
- C:\VSARM\projects\vga\build\generated\pico_base/pico/config_autogen.h \
+ C:\VSARM\projects\pico-vga\build\generated\pico_base/pico/config_autogen.h \
  C:/VSARM/sdk/pico/pico-sdk/src/boards/include/boards/pico.h \
  C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/cmsis/include/cmsis/rename_exceptions.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\pico_platform\include/pico/platform.h \
@@ -83,4 +84,4 @@ CMakeFiles/vga_interface.dir/main.c.obj: C:\VSARM\projects\vga\main.c \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2_common\hardware_dma\include/hardware/dma.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_structs\include/hardware/structs/dma.h \
  C:\VSARM\sdk\pico\pico-sdk\src\rp2040\hardware_regs\include/hardware/regs/dma.h \
- C:\VSARM\projects\vga\build/vga.pio.h
+ C:\VSARM\projects\pico-vga\build/vga.pio.h

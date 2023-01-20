@@ -2930,7 +2930,7 @@ CMakeFiles/vga_interface.dir/C_/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_uniq
   C:/VSARM/sdk/pico/pico-sdk/src/common/pico_base/include/pico/error.h \
   C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_unique_id/include/pico/unique_id.h
 
-CMakeFiles/vga_interface.dir/main.c.obj: C:/VSARM/projects/vga/main.c \
+CMakeFiles/vga_interface.dir/main.c.obj: C:/VSARM/projects/pico-vga/main.c \
   C:/VSARM/armcc/11.2\ 2022.02/arm-none-eabi/include/stdio.h \
   C:/VSARM/armcc/11.2\ 2022.02/arm-none-eabi/include/_ansi.h \
   C:/VSARM/armcc/11.2\ 2022.02/arm-none-eabi/include/newlib.h \
@@ -3334,8 +3334,6 @@ C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb_descriptors.c
 
 C:/VSARM/sdk/pico/pico-sdk/src/rp2040/hardware_regs/include/hardware/regs/pll.h:
 
-C:/VSARM/projects/vga/main.c:
-
 C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_double/double_init_rom.c:
 
 C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/hardware_xosc/include/hardware/xosc.h:
@@ -3477,3 +3475,5 @@ C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdio_usb/stdio_usb.c:
 C:/VSARM/sdk/pico/pico-sdk/src/rp2_common/pico_stdlib/stdlib.c:
 
 vga.pio.h:
+
+C:/VSARM/projects/pico-vga/main.c:

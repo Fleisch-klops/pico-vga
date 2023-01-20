@@ -30,7 +30,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "C:/Program Files/CMake/share/cmake-3.24/Modules/FindPackageMessage.cmake"
   "C:/Program Files/CMake/share/cmake-3.24/Modules/FindPython/Support.cmake"
   "C:/Program Files/CMake/share/cmake-3.24/Modules/FindPython3.cmake"
-  "C:/VSARM/projects/vga/CMakeLists.txt"
+  "C:/VSARM/projects/pico-vga/CMakeLists.txt"
   "CMakeFiles/3.24.0-rc3/CMakeASMCompiler.cmake"
   "CMakeFiles/3.24.0-rc3/CMakeCCompiler.cmake"
   "CMakeFiles/3.24.0-rc3/CMakeCXXCompiler.cmake"

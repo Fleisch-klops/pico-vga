@@ -5,18 +5,18 @@ cmake_minimum_required(VERSION 3.5)
 
 file(MAKE_DIRECTORY
   "C:/VSARM/sdk/pico/pico-sdk/tools/elf2uf2"
-  "C:/VSARM/projects/vga/build/elf2uf2"
-  "C:/VSARM/projects/vga/build/elf2uf2"
-  "C:/VSARM/projects/vga/build/elf2uf2/tmp"
-  "C:/VSARM/projects/vga/build/elf2uf2/src/ELF2UF2Build-stamp"
-  "C:/VSARM/projects/vga/build/elf2uf2/src"
-  "C:/VSARM/projects/vga/build/elf2uf2/src/ELF2UF2Build-stamp"
+  "C:/VSARM/projects/pico-vga/build/elf2uf2"
+  "C:/VSARM/projects/pico-vga/build/elf2uf2"
+  "C:/VSARM/projects/pico-vga/build/elf2uf2/tmp"
+  "C:/VSARM/projects/pico-vga/build/elf2uf2/src/ELF2UF2Build-stamp"
+  "C:/VSARM/projects/pico-vga/build/elf2uf2/src"
+  "C:/VSARM/projects/pico-vga/build/elf2uf2/src/ELF2UF2Build-stamp"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "C:/VSARM/projects/vga/build/elf2uf2/src/ELF2UF2Build-stamp/${subDir}")
+    file(MAKE_DIRECTORY "C:/VSARM/projects/pico-vga/build/elf2uf2/src/ELF2UF2Build-stamp/${subDir}")
 endforeach()
 if(cfgdir)
-  file(MAKE_DIRECTORY "C:/VSARM/projects/vga/build/elf2uf2/src/ELF2UF2Build-stamp${cfgdir}") # cfgdir has leading slash
+  file(MAKE_DIRECTORY "C:/VSARM/projects/pico-vga/build/elf2uf2/src/ELF2UF2Build-stamp${cfgdir}") # cfgdir has leading slash
 endif()
