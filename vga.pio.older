@@ -1,0 +1,110 @@
+;ToDo lookup autopull and needed configuration of SMs 
+
+
+;maybe use more cycles per clock to output and sync in one program...
+
+
+
+;vga_interface VESA 640 x 480 @ 75 Hz
+;2 clocks per pixel -> 63 MHz
+;sync_polarity -/-
+;irq0 high -> horizontal blank_area
+;irq1 high -> vertical blank_area
+;irq2 vertical_clock
+;irq7 starting impulse
+
+
+.program vga_hsync
+
+.sideset 1                                  //h_sync_pin as sideset
+
+
+irq wait 7                                  //wait for start impulse
+
+.wrap_target
+pixels:
+    out x, 10                   side 1      //[1] get pixel_count (times 2) - 2
+pixels_loop:
+    jmp x-- pixels_loop         side 1      //[N+1] pixels_loop
+
+
+front_porch:
+    irq 0                       side 1      //[1] indicate horizontal blank area
+    set x, 29                   side 1      //[1] set front_porch_counter (times 2) - 3
+front_porch_loop:
+    jmp x-- front_porch_loop    side 1      //[N+1] front_porch_loop
+
+
+sync_pulse:
+    out x, 7                    side 0      //[1] get sync_pulse_counter (times 2) - 2 and set h_sync_pin low
+sync_pulse_loop:
+    jmp x-- sync_pulse_loop     side 0      //[N+1] sync_pulse_loop
+
+
+back_porch:
+    out x, 8                    side 1      //[1] get _back_porch_counter (times 2) - 4
+back_porch_loop:
+    jmp x-- back_porch_loop     side 1      //[N+1] back_porch_loop
+    irq 2                       side 1      //[1] signal end of line/ vertical clock
+    irq clear 0                 side 1      //[1] end blank area
+.wrap
+
+;   12 instructions in total
+
+% c-sdk {
+    
+%}
+
+
+
+.program vga_vsync
+
+.sideset 1
+
+
+irq 7
+
+.wrap_target
+lines:
+    out x, 8                    side 1      //get line_counter - 1
+lines_loop:
+    wait 1 irq 2                side 1      //wait for vertical_clock pulse
+    jmp x-- lines_loop          side 1      //lines_loop (n+1)
+
+front_porch:
+    irq 1                       side 1      //indicate vertical blank area
+    wait 1 irq 2                side 1      //front porch is just one line
+
+sync_pulse:
+    set x, 2                    side 0      //set vsync_pulse_counter
+sync_pulse_loop:
+    wait 1 irq 2                side 0      //wait for vertical_clock pulse
+    jmp x-- sync_pulse_loop     side 0      //sync_pulse_loop (n+1)
+
+back_porch:
+    set x, 15                   side 1      //set back_porch_counter
+back_porch_loop:
+    wait 1 irq 2                side 1      //wait for vertical_clock pulse
+    jmp x-- back_porch_loop 	side 1      //back_porch_loop
+
+irq clear 1                     side 1      //end blank area
+.wrap
+
+; 13 instructions
+
+% c-sdk {
+
+%}
+
+
+
+.program pixel_data
+
+.wrap_target
+
+
+.wrap
+
+% c-sdk {
+
+%}

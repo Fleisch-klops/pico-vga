@@ -1,0 +1,95 @@
+;===========================================================;
+;                       vga interface			    		;
+;===========================================================;
+;                                                           ;
+;VESA 640 x 480 @ 75 Hz                                     ;
+;sync polarity -/-                                          ;
+;                                                           ;
+;3 clocks per pixel -> 94.5 MHz                             ;
+;control word:  Bit 0-10: N                                 ;
+;               Bit 11-16: value for pc for vertical blank  ;
+;                                                           ;
+;                      20 instructions                      ;
+;-----------------------------------------------------------;
+
+.program vga
+
+.origin 0
+.side_set 1
+
+set pins 1						side 1			//reset sync signals
+out NULL 32						side 1			//clear osr
+
+.wrap_target
+h_sync_pulse:
+	out x, 16					side 0	[2]		//[3] get sync_pulse_counter -2
+h_sync_pulse_loop:
+	jmp x-- h_sync_pulse_loop	side 0	[2]		//[3][N+1] sync_pulse_loop
+
+
+back_porch:
+	out x, 10					side 1 	[1]		//[2] get back_porch_counter -3
+back_porch_loop:
+	jmp x-- back_porch_loop		side 1	[2]		//[3][N+1] back_porch_loop
+    out pc, 6                   side 1          //[1] if vertical blank continue with blank or blank_sync
+	
+
+pixels:
+	out x, 16					side 1	[2]		//[3] get pixel_counter -1 
+pixels_loop:
+	out pins, 8					side 1	[1]		//[2] output pixel data
+	jmp x-- pixels_loop			side 1			//[1][N+1] loop for one line of pixels
+
+
+front_porch:
+	out x, 16					side 1	[2]		//[3] get front_porch_counter -2
+front_porch_loop:
+	jmp x-- front_porch_loop	side 1	[2]		//[3][N+1]
+.wrap
+
+blank:
+	set pins 1					side 1			//[1]reset v_sync signal
+    out x, 16                   side 1          //[1] get pixel_counter -1
+blank_space_loop:
+    jmp x-- blank_space_loop    side 1  [2]     //[3][N+1] loop
+    jmp front_porch             side 1          //[1] jump back to main loop
+
+blank_sync:
+	set pins 0					side 1			//[1]set v_sync signal
+    out x, 16                   side 1          //[1] get pixel_counter -1
+blank_sync_loop:
+    jmp x-- blank_sync_loop     side 1  [2]     //[3][N+1] loop
+    jmp front_porch             side 1          //[1] jump back to main loop
+
+% c-sdk {
+
+static inline void vga_program_init(PIO pio, uint sm, uint offset, uint set_pin, uint set_pin_count, uint out_pin, uint out_pin_count, uint sideset_pin, float div) {
+
+	pio_sm_config c = vga_program_get_default_config(offset);
+
+	for (uint i=0;i<out_pin_count;i++) {
+		pio_gpio_init(pio, (out_pin + i));
+	}
+	pio_gpio_init(pio, sideset_pin);
+	pio_gpio_init(pio, set_pin);
+	
+	sm_config_set_sideset_pins(&c, sideset_pin);
+
+	sm_config_set_out_pins(&c, out_pin, out_pin_count);
+
+	sm_config_set_set_pins(&c, set_pin, set_pin_count);
+
+	sm_config_set_clkdiv(&c, div);
+
+	sm_config_set_out_shift(&c, true, true, 32);
+
+	sm_config_set_fifo_join(&c, PIO_FIFO_JOIN_TX);
+
+	pio_sm_set_consecutive_pindirs(pio, sm, set_pin, (out_pin_count + 2), true);
+
+	pio_sm_init(pio, sm, offset, &c);
+}
+
+%}
+
+;ToDo: configure dma (optional)
